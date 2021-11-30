@@ -7,8 +7,8 @@
   --yellow: hsl(51, 100%, 49%);
   --graphic-design-text-color: hsl(167, 40%, 24%);
   --photography-text-color: hsl(198, 62%, 26%);
-  --footer-icon-color: hsl(168, 34%, 41%);
-  --footer-color: hsl(166, 32%, 83%);
+  --footer-color: hsl(168, 34%, 41%);
+  --footer-background-color: hsl(166, 52%, 74%);
 
   --very-dark-desaturated-blue: hsl(212, 27%, 19%);
   --very-dark-grayish-blue: hsl(213, 9%, 39%);
@@ -41,6 +41,10 @@ h2 {
   font-family: "Fraunces", serif;
   font-size: 1.6rem;
   font-weight: 900;
+}
+
+a {
+  cursor: pointer;
 }
 
 article a {
@@ -88,14 +92,17 @@ header {
   margin: auto;
 }
 
-.main,
-.testimonials {
-  display: grid;
-  grid-template-columns: 1fr;
+.main {
+  display: flex;
+  flex-direction: column;
 }
 
 article {
   padding: 3.5rem 1.5rem;
+}
+
+.article__title {
+  font-size: 1.8rem;
 }
 
 .article__copy {
@@ -103,14 +110,53 @@ article {
   margin-block: 1.2rem;
 }
 
+.learn__more {
+  letter-spacing: 0.1ch;
+  position: relative;
+}
+
+.learn__more::after {
+  border-radius: 50px;
+  bottom: -0.1rem;
+  content: "";
+  height: 0.5rem;
+  left: -5%;
+  opacity: 25%;
+  position: absolute;
+  width: 110%;
+  z-index: -1;
+}
+
+.transform__content .learn__more::after {
+  background-color: var(--yellow);
+}
+
+.stand-out__content .learn__more::after {
+  background-color: var(--soft-red);
+}
+
+.transform__content {
+  grid-area: transform__content;
+}
+.transform__image {
+  grid-area: transform__image;
+}
+.stand-out__content {
+  grid-area: stand-out__content;
+}
+.stand-out__image {
+  grid-area: stand-out__image;
+}
+
 .graphic-design {
   background-image: url("./images/mobile/image-graphic-design.jpg");
   background-size: cover;
   display: flex;
   flex-direction: column;
+  grid-area: graphic-design;
   height: 32rem;
   justify-content: flex-end;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 .graphic-design h2 {
@@ -127,9 +173,10 @@ article {
   background-size: cover;
   display: flex;
   flex-direction: column;
+  grid-area: photography;
   height: 32rem;
   justify-content: flex-end;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 .photography h2 {
@@ -142,9 +189,41 @@ article {
   font-size: 0.9rem;
 }
 
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 3rem 0.5rem;
+}
+
+.testimonials__title {
+  color: var(--grayish-blue);
+  font-size: 0.85rem;
+  letter-spacing: 0.4ch;
+  text-transform: uppercase;
+}
+
+.quote {
+  color: var(--very-dark-grayish-blue);
+  line-height: 1.5;
+  margin-block: 2rem;
+}
+
+.name {
+  color: var(--very-dark-desaturated-blue);
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+}
+
+.title {
+  color: var(--grayish-blue);
+  font-size: 0.8rem;
+  margin-top: 1em;
+}
+
 .headshot {
   border-radius: 500px;
   margin: auto;
+  width: 4rem;
 }
 
 .gallery {
@@ -153,7 +232,31 @@ article {
 }
 
 .footer {
-  background-color: var(--footer-color);
+  background-color: var(--footer-background-color);
+  padding: 4rem 2rem;
+  padding-bottom: 0;
+}
+
+.footer-logo {
+  transform: scale(135%);
+}
+
+.footer__nav {
+  color: var(--footer-color);
+  margin: auto;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  width: 16rem;
+}
+
+.footer__social {
+  margin: auto;
+  width: 10rem;
+}
+
+.attribution {
+  margin-bottom: 0;
+  margin-top: 3rem;
 }
 
 /* Desktop Layout */
@@ -184,8 +287,28 @@ article {
     font-size: 3rem;
   }
 
-  main {
+  .main {
+    display: grid;
+    grid-template-areas:
+      "transform__content transform__image"
+      "stand-out__image stand-out__content"
+      "graphic-design photography";
     grid-template-columns: 1fr 1fr;
+  }
+
+  .transform__content,
+  .stand-out__content {
+    text-align: left;
+  }
+
+  .graphic-design {
+    background-image: url("./images/desktop/image-graphic-design.jpg");
+    background-position: top;
+  }
+
+  .photography {
+    background-image: url("./images/desktop/image-photography.jpg");
+    background-position: top;
   }
 
   .gallery {
