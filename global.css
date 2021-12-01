@@ -63,6 +63,18 @@ img {
   color: var(--graphic-design-text-color);
 }
 
+.social__icon {
+  fill: hsl(168, 45%, 32%);
+}
+
+.nav__item a:hover {
+  color: var(--white);
+}
+
+.social__icon:hover {
+  fill: var(--white);
+}
+
 /* Mobile Layout */
 header {
   background-image: url("./images/mobile/image-header.jpg");
@@ -125,6 +137,11 @@ article {
   position: absolute;
   width: 110%;
   z-index: -1;
+}
+
+picture img {
+  height: 100%;
+  width: auto;
 }
 
 .transform__content .learn__more::after {
@@ -237,8 +254,11 @@ article {
   padding-bottom: 0;
 }
 
-.footer-logo {
+.logo {
+  align-self: center;
+  padding: 0 2rem;
   transform: scale(135%);
+  width: auto;
 }
 
 .footer__nav {
@@ -267,8 +287,8 @@ article {
   }
 
   .navbar {
-    padding: 2rem;
-    margin-bottom: 2rem;
+    padding: 1rem 2rem;
+    margin-bottom: 7rem;
   }
 
   .hamburger-icon {
@@ -280,6 +300,24 @@ article {
   }
 
   header .nav__list {
+    align-items: center;
+    color: var(--white);
+    gap: 2rem;
+  }
+
+  .btn {
+    background-color: var(--white);
+    border-radius: 50px;
+    color: var(--very-dark-desaturated-blue);
+    cursor: pointer;
+    font-family: "Fraunces", serif;
+    font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .btn:hover {
+    background-color: hsla(0, 0%, 100%, 35%);
     color: var(--white);
   }
 
@@ -298,7 +336,26 @@ article {
 
   .transform__content,
   .stand-out__content {
+    display: flex;
+    flex-direction: column;
     text-align: left;
+  }
+
+  .content-box {
+    margin: auto;
+    width: 70%;
+  }
+
+  .article__title {
+    font-size: 2.3rem;
+  }
+
+  .learn__more {
+    font-size: 0.9rem;
+  }
+
+  .learn__more:hover::after {
+    opacity: 75%;
   }
 
   .graphic-design {
@@ -309,6 +366,23 @@ article {
   .photography {
     background-image: url("./images/desktop/image-photography.jpg");
     background-position: top;
+  }
+
+  .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    margin-inline: auto;
+    width: 85%;
+  }
+
+  .testimonials__title {
+    grid-column: 1 / 4;
+    font-size: 1.1rem;
+  }
+
+  .testimonial {
+    grid-row: 2;
   }
 
   .gallery {
