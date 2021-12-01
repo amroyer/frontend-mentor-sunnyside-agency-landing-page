@@ -84,6 +84,7 @@ header {
 }
 
 .row {
+  align-items: center;
   display: flex;
   justify-content: space-between;
 }
@@ -260,8 +261,7 @@ picture img {
   padding-bottom: 0;
 }
 
-.logo {
-  align-self: center;
+.footer__logo {
   padding: 0 2rem;
   transform: scale(135%);
   width: auto;
@@ -334,8 +334,13 @@ picture img {
   }
 
   .navbar {
-    padding: 1rem 2rem;
-    margin-bottom: 7rem;
+    padding: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .header__logo {
+    margin-left: 2rem;
+    transform: scale(135%);
   }
 
   .hamburger-icon {
@@ -372,6 +377,7 @@ picture img {
       "stand-out__image stand-out__content"
       "graphic-design photography";
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
   }
 
   .transform__content,
@@ -398,14 +404,22 @@ picture img {
     opacity: 75%;
   }
 
+  .graphic-design .article__copy,
+  .photography .article__copy {
+    margin: 2rem auto;
+    width: 50%;
+  }
+
   .graphic-design {
     background-image: url("./images/desktop/image-graphic-design.jpg");
     background-position: top;
+    height: auto;
   }
 
   .photography {
     background-image: url("./images/desktop/image-photography.jpg");
     background-position: top;
+    height: auto;
   }
 
   .testimonials {
