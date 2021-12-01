@@ -18,7 +18,7 @@
   </head>
   <body>
     <header class="header">
-      <ha class="row navbar">
+      <div class="row navbar">
         <svg
           width="124"
           height="24"
@@ -31,16 +31,21 @@
             fill-rule="nonzero"
           />
         </svg>
-        <img src="./images/icon-hamburger.svg" alt="" class="hamburger-icon" />
+        <img
+          src="./images/icon-hamburger.svg"
+          alt=""
+          class="hamburger-icon"
+          onclick="toggleDropdown()"
+        />
         <nav class="header__nav">
           <ul class="nav__list row">
-            <li class="nav__item"><a href="">About</a></li>
-            <li class="nav__item"><a href="">Services</a></li>
-            <li class="nav__item"><a href="">Projects</a></li>
-            <li class="nav__item btn"><a href="">Contact</a></li>
+            <li class="nav__item"><a href="#">About</a></li>
+            <li class="nav__item"><a href="#">Services</a></li>
+            <li class="nav__item"><a href="#">Projects</a></li>
+            <li class="nav__item btn"><a href="#">Contact</a></li>
           </ul>
         </nav>
-      </ha>
+      </div>
       <h1 class="headline">We are creatives</h1>
       <img
         src="./images/icon-arrow-down.svg"
@@ -293,4 +298,11 @@
       </div>
     </footer>
   </body>
+
+  <script>
+    const dropdownMenu = document.querySelector(".header__nav");
+    const toggleDropdown = () => {
+      dropdownMenu.classList.toggle("visible");
+    };
+  </script>
 </html>
